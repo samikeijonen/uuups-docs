@@ -1,0 +1,24 @@
+{
+  "name": "uuups-docs",
+  "version": "1.0.0",
+  "description": "Uuups documentation",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samikeijonen/uuups-docs.git"
+  },
+  "keywords": [
+    "docs"
+  ],
+  "author": "Sami Keijonen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samikeijonen/uuups-docs/issues"
+  },
+  "homepage": "https://github.com/samikeijonen/uuups-docs#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.7.1"
+  }
+}
