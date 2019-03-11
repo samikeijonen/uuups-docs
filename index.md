@@ -2,4 +2,7 @@
 layout: layouts/base.njk
 title: Home
 ---
-<h1>{{ title }}</h1>
+# Uuups documentation
+
+What do we have here.
+
