@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Uuups documentation",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "parcel build src/index.js src/main.css"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/samikeijonen/uuups-docs#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.7.1"
+    "@11ty/eleventy": "^0.7.1",
+    "parcel-bundler": "^1.12.0",
+    "tailwindcss": "^0.7.4"
   }
 }
