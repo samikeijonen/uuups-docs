@@ -1,1 +1,49 @@
+@tailwind preflight;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: config('colors.black');
+	line-height: 1.25;
+	margin: 0 0 1rem;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+p,
+ul,
+ol,
+pre {
+	margin: 0 0 2rem;
+}
+
+pre {
+	background-color: config('colors.grey-lightest');
+	padding: 2rem;
+}
+
+a,
+a:visited {
+	color: config('colors.purple');
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: config('colors.dark');
+}
+
 @tailwind utilities;

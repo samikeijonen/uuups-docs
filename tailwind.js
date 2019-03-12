@@ -46,18 +46,23 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 let colors = {
   'transparent': 'transparent',
 
-  'black': 'hsl(212, 25%, 12%)',
-  'grey': 'hsl(212, 14%, 31%)',
+	'black': 'hsl(212, 25%, 12%)',
+	'grey-darkest': 'hsl(212, 25%, 31%)',
+  'grey-darker': 'hsl(212, 20%, 31%)',
+  'grey-dark': 'hsl(212, 20%, 31%)',
+	'grey': 'hsl(212, 14%, 31%)',
+	'grey-light': 'hsl(212, 22%, 56%)',
+  'grey-lighter': 'hsl(212, 22%, 76%)',
   'grey-lightest': 'hsl(212, 22%, 96%)',
   'white': '#fff',
 
   'purple-darkest': '#21183c',
   'purple-darker': '#382b5f',
   'purple-dark': '#794acf',
-  'purple': '#9561e2',
-  'purple-light': '#a779e9',
-  'purple-lighter': '#d6bbfc',
-  'purple-lightest': '#f3ebff',
+  'purple': 'hsl(231, 83%, 50%)',
+  'purple-light': 'hsl(231, 59%, 76%)',
+  'purple-lighter': 'hsl(231, 59%, 86%)',
+  'purple-lightest': 'hsl(231, 59%, 96%)',
 }
 
 module.exports = {

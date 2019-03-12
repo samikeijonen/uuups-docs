@@ -7,17 +7,20 @@
 
         <link rel="stylesheet" href="/dist/main.css">
     </head>
-    <body>
-        <header>
-            <nav class="menu menu--main">
-                <ul class="menu__items">
-                    <li class="menu__item"><a class="menu__anchor" href="/">Sanat</a></li>
-                    <li class="menu__item"><a class="menu__anchor" href="/kuka">Kuka?</a></li>
+    <body class="text-grey-darker bg-grey-lightest font-sans text-lg leading-normal">
+        <header class="pl-4 pr-4 max-w-2xl ml-auto mr-auto">
+            <nav class="pb-10 pt-10">
+                <ul class="flex flex-wrap list-reset mb-0">
+                    <li class="mr-4"><a class="no-underline text-grey" href="/">Home</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey" href="/installation">Installation</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey" href="/getting-started">Getting started</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey" href="/build-process">Build process</a></li>
                 </ul>
-            <nav>
+            </nav>
         </header>
-        <main>
-            <h1>Installation</h1>
+        <main class="bg-white pl-4 pr-4 max-w-2xl ml-auto mr-auto pb-10 pt-10">
+            <div class="max-w-md ml-auto mr-auto">
+				<h1>Installation</h1>
 <p>The following is a step-by-step guide for installing and setting up the Uuups starter theme.</p>
 <h2>Install programs</h2>
 <p>You'll need a few tools installed on your computer before getting started. More than likely, you already have one or more of these as a theme developer.</p>
@@ -54,6 +57,9 @@
 <pre><code class="language-bash">composer dump-autoload
 </code></pre>
 
+			</div>
         </main>
+
+		<script src="/dist/index.js"></script>
     </body>
 </html>
