@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Installation &ndash; Uuups documentation</title>
+
+        <link rel="stylesheet" href="/dist/main.css">
+    </head>
+    <body>
+        <header>
+            <nav class="menu menu--main">
+                <ul class="menu__items">
+                    <li class="menu__item"><a class="menu__anchor" href="/">Sanat</a></li>
+                    <li class="menu__item"><a class="menu__anchor" href="/kuka">Kuka?</a></li>
+                </ul>
+            <nav>
+        </header>
+        <main>
+            <h1>Installation</h1>
+<p>The following is a step-by-step guide for installing and setting up the Uuups starter theme.</p>
+<h2>Install programs</h2>
+<p>You'll need a few tools installed on your computer before getting started. More than likely, you already have one or more of these as a theme developer.</p>
+<ul>
+<li><a href="https://git-scm.com/">Git</a> for version control.</li>
+<li><a href="https://getcomposer.org/">Composer</a> for managing PHP dependencies.</li>
+<li><a href="https://www.npmjs.com/">NPM</a> or <a href="https://yarnpkg.com/en/">Yarn</a> (your choice) for managing JS dependencies.</li>
+</ul>
+<h2>Installing the theme</h2>
+<p>Open the command line utility on your computer.</p>
+<p>Themes belong in your <code>wp-content/themes</code> folder. You can directly download and install the theme if you wish. Or, you can use the command line to do so.</p>
+<p>First, you must switch to the proper folder:</p>
+<pre><code class="language-bash">cd path/to/wp-content/themes
+</code></pre>
+<p>Then, create a new project with Composer. Replace <code>theme-name</code> in the below with the folder name for your theme. This will automatically clone the theme and install any dependencies you need.</p>
+<pre><code class="language-bash">composer create-project samikeijonen/uuups theme-name
+</code></pre>
+<p>Once the installation is complete, you may be presented with the following question:</p>
+<pre><code class="language-bash">Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]?
+</code></pre>
+<p>Simply type <code>Y</code> and hit the <code>Enter</code> key. This is so that you're working on your own theme project and not the primary Uuups repository.</p>
+<p>After that, you need to make sure that you're in the proper folder to follow the next steps:</p>
+<pre><code class="language-bash">cd theme-name
+</code></pre>
+<h2>Installing Node dependencies</h2>
+<p>Uuups has many Node dependencies that it uses for the build process. To install them, you can either use NPM or Yarn.</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+<h2>Renaming the theme</h2>
+<p>At this point, the theme is installed and ready to go. You'll likely want to rename the theme to something that suits your project. You can do this manually or use the included <code>rename</code> command, which will walk you through a series of questions and set up everything for you.</p>
+<pre><code class="language-bash">npm run rename
+</code></pre>
+<p>After this process has run, you'll want to regenerate your Composer autoload files using the following command.</p>
+<pre><code class="language-bash">composer dump-autoload
+</code></pre>
+
+        </main>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Build process &ndash; Uuups documentation</title>
+
+        <link rel="stylesheet" href="/dist/main.css">
+    </head>
+    <body>
+        <header>
+            <nav class="menu menu--main">
+                <ul class="menu__items">
+                    <li class="menu__item"><a class="menu__anchor" href="/">Sanat</a></li>
+                    <li class="menu__item"><a class="menu__anchor" href="/kuka">Kuka?</a></li>
+                </ul>
+            <nav>
+        </header>
+        <main>
+            <h1>Build process</h1>
+<p>This theme utilizes <a href="https://webpack.js.org/">Webpack</a> for build process with the theme.</p>
+<p>Most of the ideas are based on article <a href="https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development">An Annotated webpack 4 Config for Frontend Web Development
+</a>.</p>
+<p>In short, run this command while developing a theme:</p>
+<pre><code class="language-bash">npm run watch
+</code></pre>
+<p>Run this command when you are ready for production:</p>
+<pre><code class="language-bash">npm run prod
+</code></pre>
+<h2>Webpack con­fig files</h2>
+<p>We have several Webpack config files:</p>
+<ul>
+<li><code>webpack.settings.js</code> — a JSON-ish set­tings file, the only file we need to edit from project to project.</li>
+<li><code>webpack.common.js</code> — com­mon set­tings for both development and production builds.</li>
+<li><code>webpack.dev.js</code> — set­tings for local devel­op­ment builds.</li>
+<li><code>webpack.prod.js</code> — set­tings for pro­duc­tion builds.</li>
+</ul>
+<p>Here are couple of most common examples editing <code>webpack.settings.js</code> file.</p>
+<h3>Add or remove JS or CSS entry</h3>
+<ol>
+<li>Open <code>webpack.settings.js</code>.</li>
+<li>Locate <code>entries</code>.</li>
+<li>Add or remove line (key: path).</li>
+</ol>
+<p>Let's look at line</p>
+<pre><code class="language-bash">style: './resources/css/style.css'
+</code></pre>
+<ul>
+<li>Key <code>style</code> is the file name which compiles to <code>./dist/css/style.css</code>.</li>
+<li>Path <code>./resources/css/style.css</code> is the development file where you work on.</li>
+</ul>
+<p>Note that you also need to enqueue new JS or CSS files in <code>./app/functions-assets.php</code> file. Or remove unused ones.</p>
+<h3>Update BrowserSync proxy URL</h3>
+<p>BrowserSync proxy URL is the dev URL you want to use with <code>npm run watch</code>.</p>
+<ol>
+<li>Open <code>webpack.settings.js</code>.</li>
+<li>Locate <code>BrowserSyncConfig</code>.</li>
+<li>Update <code>proxy</code> URL.</li>
+</ol>
+<h2>List of commands</h2>
+<p>The following is a list of commands you can run from the command line:</p>
+<pre><code class="language-bash"># Builds the entire theme ready for packaging for output.
+# This command runs through the below `prod` and `i18n` commands.
+npm run build
+
+# Processes all of your assets for a development environment.
+npm run dev
+
+# Auto-adds a textdomain and/or creates a POT file.
+npm run i18n
+npm run i18n:textdomain
+npm run i18n:pot
+
+# Lint CSS, JavaScript and PHP files.
+npm run lint
+npm run lint:css
+npm run lint:js
+npm run lint:php
+
+# Processes all of your assets for a production environment.
+npm run prod
+
+# Exports a copy of your theme for distribution.
+npm run release
+
+# Rename the theme, slugs, namespace and more.
+npm run rename
+
+# Watches for changes to any files and rebuilds for a development environment.
+npm run watch
+</code></pre>
+
+        </main>
+    </body>
+</html>
