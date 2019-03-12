@@ -24,9 +24,36 @@ npm run prod
 We have several Webpack config files:
 
 * `webpack.settings.js` — a JSON-ish set­tings file, the only file we need to edit from project to project.
-* `webpack.common.js` — com­mon set­tings for both dev and prod.
+* `webpack.common.js` — com­mon set­tings for both development and production builds.
 * `webpack.dev.js` — set­tings for local devel­op­ment builds.
 * `webpack.prod.js` — set­tings for pro­duc­tion builds.
+
+Here are couple of most common examples editing `webpack.settings.js` file.
+
+### Add or remove JS or CSS entry
+
+1. Open `webpack.settings.js`.
+1. Locate `entries`.
+1. Add or remove line (key: path).
+
+Let's look at line
+
+```bash
+style: './resources/css/style.css'
+```
+
+* Key `style` is the file name which compiles to `./dist/css/style.css`.
+* Path `./resources/css/style.css` is the development file where you work on.
+
+Note that you also need to enqueue new JS or CSS files in `./app/functions-assets.php` file. Or remove unused ones.
+
+### Update BrowserSync proxy URL
+
+BrowserSync proxy URL is the dev URL you want to use with `npm run watch`.
+
+1. Open `webpack.settings.js`.
+1. Locate `BrowserSyncConfig`.
+1. Update `proxy` URL.
 
 ## List of commands
 
