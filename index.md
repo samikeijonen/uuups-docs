@@ -4,5 +4,12 @@ title: Home
 ---
 # Uuups documentation
 
-What do we have here.
+[Uuups](https://github.com/samikeijonen/uuups) is a starter theme and an experiment how to bring your theme to the next level.
 
+## Read Mythic documentation
+
+This is my playground from [Justin Tadlock's starter theme called Mythic](https://github.com/justintadlock/mythic). Most of the code is the same
+but I have small experiments here and there.
+
+[Mythic Wiki](https://github.com/justintadlock/mythic/wiki) have lot's of
+relevant information. Make sure to check it out.
