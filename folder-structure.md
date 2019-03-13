@@ -91,6 +91,21 @@ It's common to add or remove `functions-{$name}.php` files. Here is how to add n
 1. Add `functions-example` in the array.
 1. Note that there is no need for `.php` in the end.
 
+### Autoloading classes
+
+Inside `app` folder there are couple of sub-folders which holds PHP classes. This classes are autoloaded using [PSR-4 autoloader](https://www.php-fig.org/psr/psr-4/).
+
+The sub-folders follow namespacing and class-naming rules.
+
+* Each sub-namespace gets its own folder (case-sensitive).
+	* For example folder called `Providers`.
+	* In there we use namespace `Uuups\Providers`.
+* Each class gets its own file (case-sensitive).
+	* For example `Providers/AppServiceProvider.php`.
+	* In there class name is `AppServiceProvider`.
+
+Read Justin's tutorial about [PHP namespaces and autoloading](http://justintadlock.com/archives/2018/12/14/php-namespaces-for-wordpress-developers).
+
 ## /dist
 
 The `/dist` folder is for holding our compiled assets for distribution. **These files should not be edited directly**. The sub-folders are organized on par with the sub-folders in `/resources`.

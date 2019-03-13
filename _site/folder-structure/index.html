@@ -98,6 +98,24 @@
 <li>Add <code>functions-example</code> in the array.</li>
 <li>Note that there is no need for <code>.php</code> in the end.</li>
 </ol>
+<h3>Autoloading classes</h3>
+<p>Inside <code>app</code> folder there are couple of sub-folders which holds PHP classes. This classes are autoloaded using <a href="https://www.php-fig.org/psr/psr-4/">PSR-4 autoloader</a>.</p>
+<p>The sub-folders follow namespacing and class-naming rules.</p>
+<ul>
+<li>Each sub-namespace gets its own folder (case-sensitive).
+<ul>
+<li>For example folder called <code>Providers</code>.</li>
+<li>In there we use namespace <code>Uuups\Providers</code>.</li>
+</ul>
+</li>
+<li>Each class gets its own file (case-sensitive).
+<ul>
+<li>For example <code>Providers/AppServiceProvider.php</code>.</li>
+<li>In there class name is <code>AppServiceProvider</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Read Justin's tutorial about <a href="http://justintadlock.com/archives/2018/12/14/php-namespaces-for-wordpress-developers">PHP namespaces and autoloading</a>.</p>
 <h2>/dist</h2>
 <p>The <code>/dist</code> folder is for holding our compiled assets for distribution. <strong>These files should not be edited directly</strong>. The sub-folders are organized on par with the sub-folders in <code>/resources</code>.</p>
 <ul>
