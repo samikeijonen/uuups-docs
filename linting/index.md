@@ -93,8 +93,34 @@ npm run lint:js
 
 ## Lint all
 
-You can also lint PHP, CSS, and JS using command:
+You can also lint PHP, CSS, and JS using one command:
 
 ```bash
 npm run lint
 ```
+
+## Lint rules in IDE
+
+It's also helpful to see lint errors and fix them in your IDE. I use these VS Code extensions:
+
+* [PHPCS](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs).
+* [Stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint).
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+I also use [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for automatic formatting when saving the file.
+
+I use this kind of VS Code `settings.json`:
+
+```json
+{
+	"phpcs.executablePath": "path-to/uuups/vendor/bin/phpcs",
+	"phpcs.standard": "Foxland-Default",
+	"phpcs.autoConfigSearch": false,
+	"editor.formatOnSave": true,
+	"prettier.eslintIntegration": true,
+	"prettier.stylelintIntegration": true
+}
+```
+
+This setup gives me info about linting errors and Prettier tries to fix them when saving the file.
+

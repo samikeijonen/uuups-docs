@@ -83,9 +83,28 @@
 <pre><code class="language-bash">npm run lint:js
 </code></pre>
 <h2>Lint all</h2>
-<p>You can also lint PHP, CSS, and JS using command:</p>
+<p>You can also lint PHP, CSS, and JS using one command:</p>
 <pre><code class="language-bash">npm run lint
 </code></pre>
+<h2>Lint rules in IDE</h2>
+<p>It's also helpful to see lint errors and fix them in your IDE. I use these VS Code extensions:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs">PHPCS</a>.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint">Stylelint</a>.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a>.</li>
+</ul>
+<p>I also use <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a> for automatic formatting when saving the file.</p>
+<p>I use this kind of VS Code <code>settings.json</code>:</p>
+<pre><code class="language-json">{
+	&quot;phpcs.executablePath&quot;: &quot;path-to/uuups/vendor/bin/phpcs&quot;,
+	&quot;phpcs.standard&quot;: &quot;Foxland-Default&quot;,
+	&quot;phpcs.autoConfigSearch&quot;: false,
+	&quot;editor.formatOnSave&quot;: true,
+	&quot;prettier.eslintIntegration&quot;: true,
+	&quot;prettier.stylelintIntegration&quot;: true
+}
+</code></pre>
+<p>This setup gives me info about linting errors and Prettier tries to fix them when saving the file.</p>
 
 			</div>
         </main>
