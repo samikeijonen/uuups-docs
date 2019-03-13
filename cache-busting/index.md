@@ -55,4 +55,4 @@ wp_enqueue_style( 'uuups-style', asset( 'css/style.css' ), null, null );
 
 * `uuups-style` is stylesheet handle.
 * `asset( 'css/style.css' )` checks if we have `css/style.css` key in `manifest.json`. If we do, enqueue it from `dist` folder using the hash as query string.
-* Note that we set version to `null` since we don't want WP to add it's default version number.
+* Note that we set version parameter to `null` since we don't want WP to add it's default version number.

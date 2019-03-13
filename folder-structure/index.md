@@ -93,7 +93,7 @@ It's common to add or remove `functions-{$name}.php` files. Here is how to add n
 
 ### Autoloading classes
 
-Inside `app` folder there are couple of sub-folders which holds PHP classes. This classes are autoloaded using [PSR-4 autoloader](https://www.php-fig.org/psr/psr-4/).
+Inside `app` folder there are couple of sub-folders which holds PHP classes. These classes are autoloaded using [PSR-4 autoloader](https://www.php-fig.org/psr/psr-4/).
 
 The sub-folders follow namespacing and class-naming rules.
 
