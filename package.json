@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Uuups documentation",
   "scripts": {
-    "build": "parcel build src/index.js src/main.css"
+    "build": "parcel build src/index.js src/main.css && eleventy --config=eleventy.js",
+		"dev": "ELEVENTY_ENV=development eleventy --config=eleventy.js --serve && parcel watch src/index.js src/main.css",
+		"watch": "npm run dev"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Folder structure &ndash; Uuups documentation</title>
+
+        <link rel="stylesheet" href="/dist/main.css">
+    </head>
+    <body class="text-grey-darker bg-grey-lightest font-sans text-lg leading-normal">
+        <header class="pl-4 pr-4 max-w-2xl ml-auto mr-auto">
+            <nav class="pb-10 pt-10">
+                <ul class="flex flex-wrap list-reset mb-0">
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/">Home</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/installation">Installation</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/getting-started">Getting started</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/folder-structure">Folder structure</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/build-process">Build process</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="bg-white pl-4 pr-4 max-w-2xl ml-auto mr-auto pb-10 pt-10">
+            <div class="content max-w-md ml-auto mr-auto">
+				<h1>Folder structure</h1>
+<p>This tutorial will walk you through the folder structure. Familiarizing yourself with how things are organized will help you understand a little more about what's going on.</p>
+<h2>Default structure</h2>
+<p>By default, everything is set up like so:</p>
+<pre><code>/uuups
+	/app
+	/dist
+	/resources
+	...files
+</code></pre>
+<p>99% of the work that you do with your theme will be in either the <code>/app</code> folder or <code>/resources</code> folder.  This is pretty much where all your custom code will go. All the other files outside of that can, of course, be tweaked. But, for getting started, you only need to know about those two folders.</p>
+<h2>root</h2>
+<p>The root theme folder has several files, some of which shouldn't be edited.</p>
+<ul>
+<li><code>.editorconfig</code> - Used for configuring code editors for consistent styles. See: <a href="http://editorconfig.org/">EditorConfig</a>.</li>
+<li><code>.eslintignore</code> - Used for listing files to ignore for JS linting.</li>
+<li><code>.eslintrc</code> - Configuration file for JS linting.</li>
+<li><code>.gitattributes</code> - Attributes for Git.</li>
+<li><code>.gitignore</code> - Files and folders that Git should ignore when committing and pushing to a repo.</li>
+<li><code>phpcs.xml.dist</code> - PHP coding standards configuration file.</li>
+<li><code>.stylelintignore</code> - Used for listing files to ignore for style linting.</li>
+<li><code>.stylelintrc</code> - Configuration file for style linting.</li>
+<li><code>.travis.yml</code> - Configuration file for Travis CI.</li>
+<li><code>changelog.md</code> - Change log of the theme.</li>
+<li><code>composer.json</code> - Used for listing Composer dependencies.</li>
+<li><code>functions.php</code> - Functions file first called by WordPress to bootstrap the theme.</li>
+<li><code>index.php</code> - Unused fallback template that's required in WP's system.</li>
+<li><code>package-lock.json</code> - Used by NPM to lock dependencies (don't edit).</li>
+<li><code>package.json</code> - Setup for node scripts and dependencies (used by NPM and Yarn).</li>
+<li><code>postcss.config.js</code> - Configuration file for <a href="https://postcss.org/">PostCSS</a>.</li>
+<li><code>readme.md</code> - Readme file used by GitHub and other systems to describe the theme.</li>
+<li><code>screenshot.png</code> - A 4:3 screenshot image of the theme.</li>
+<li><code>style.css</code> - Needed by WP to know this is a theme. We use this for configuration, essentially.</li>
+<li><code>themeclaim.json</code> - Configuration file for renaming the theme info.</li>
+<li><code>webpack.common.js</code> - Handles Webpack configuration for dev and prod.</li>
+<li><code>webpack.dev.js</code> - Handles Webpack configuration for dev.</li>
+<li><code>webpack.prod.js</code> - Handles Webpack configuration for prod.</li>
+<li><code>webpack.release.js</code> - Handles configuration for releasing public theme as <code>.zip</code> file.</li>
+<li><code>webpack.settings.js</code> - Handles Webpack settings. Most of the Webpack related changes should happen in this file.</li>
+</ul>
+<p>That's a lot of config files indeed. But most of them are set and forget type of files.</p>
+<h2>/app</h2>
+<p>The <code>/app</code> folder is where your &quot;app&quot; lives. This is the <strong>PHP code</strong> for your theme. Generally speaking, you'll have 3 types of PHP files that live within this folder or its sub-folders:</p>
+<ul>
+<li><code>bootstrap-{$name}.php</code> - Holds code to bootstrap something in the theme.</li>
+<li><code>functions-{$name}.php</code> - Holds a group of related functions.</li>
+<li>Classes in their own subfolders.</li>
+</ul>
+<h3>What does <code>bootstrap-{$name}.php</code> files do</h3>
+<ul>
+<li><code>bootstrap-app.php</code>: This file is used to create a new application instance and bind items to the container.</li>
+<li><code>bootstrap-autoload.php</code>: Autoload classes and functions in the theme.</li>
+<li><code>bootstrap-compat.php</code>: WP and PHP compatibility file. This is only needed for public themes.</li>
+</ul>
+<h3>Adding new <code>bootstrap-{$name}.php</code> file</h3>
+<p>Sometimes you need to add or remove any of the <code>bootstrap-{$name}.php</code> files.</p>
+<ol>
+<li>Open file <code>functions.php</code> in the root of the theme.</li>
+<li>Add or remove <code>require_once</code> function calls.</li>
+<li>For example add new line: <code>require_once get_parent_theme_file_path( 'app/bootstrap-example.php' );</code>.</li>
+</ol>
+<h3>What does <code>functions-{$name}.php</code> files do</h3>
+<ul>
+<li><code>functions-assets.php</code>: Handles enqueueing or dequeueing the assets in front-end and in the editor. And other assets related functions.</li>
+<li><code>functions-filters.php</code>: This file holds functions that are used for filtering.</li>
+<li><code>functions-setup.php</code>: This file holds basic theme setup functions executed on appropriate hooks. For example adding support for block editor color palette or align wide blocks.</li>
+<li><code>functions-svg.php</code>: This file holds SVG related functions. For example <code>get_svg</code> function and social menu link icon system.</li>
+<li><code>functions-template.php</code>: This file holds template related functions like <code>post_thumbnail</code>.</li>
+</ul>
+<h3>Adding new <code>functions-{$name}.php</code> file</h3>
+<p>It's common to add or remove <code>functions-{$name}.php</code> files. Here is how to add new file called <code>functions-example.php</code>.</p>
+<ol>
+<li>Open file <code>app/bootstrap-autoload.php</code>.</li>
+<li>Locate <code>array_map</code>.</li>
+<li>Add <code>functions-example</code> in the array.</li>
+<li>Note that there is no need for <code>.php</code> in the end.</li>
+</ol>
+<h2>/dist</h2>
+<p>The <code>/dist</code> folder is for holding our compiled assets for distribution. <strong>These files should not be edited directly</strong>. The sub-folders are organized on par with the sub-folders in <code>/resources</code>.</p>
+<ul>
+<li><code>js</code> - Holds the compiled scripts.</li>
+<li><code>css</code> - Holds the compiled stylesheets.</li>
+</ul>
+<p>Note that the <code>/resources/views</code> and <code>/resources/lang</code> folders are not copied over to <code>/dist</code>.</p>
+<h2>/resources</h2>
+<p>The <code>/resources</code> folder is where much of the magic of theme development will happen.  This is essentially the stuff that you will be editing the vast majority of the time when creating a theme.</p>
+<ul>
+<li><code>css</code> - SCSS/CSS files.</li>
+<li><code>fonts</code> - Font files.</li>
+<li><code>img</code> - PNG, JPG, and most other image files.</li>
+<li><code>js</code> - JavaScript files.</li>
+<li><code>lang</code> - POT and any other MO or PO language files.</li>
+<li><code>svg</code> - SVG icons.</li>
+<li><code>svg</code> - SVG files.</li>
+<li><code>views</code> - The template files for the theme.</li>
+</ul>
+<h2>/node_modules</h2>
+<p>NPM packages folder. Do not edit files inside this folder.</p>
+<h2>/vendor</h2>
+<p>Composer packages folder. Do not edit files inside this folder.</p>
+
+			</div>
+        </main>
+
+		<script src="/dist/index.js"></script>
+    </body>
+</html>

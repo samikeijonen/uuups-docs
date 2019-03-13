@@ -14,6 +14,7 @@
                     <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/">Home</a></li>
                     <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/installation">Installation</a></li>
                     <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/getting-started">Getting started</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/folder-structure">Folder structure</a></li>
                     <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/build-process">Build process</a></li>
                 </ul>
             </nav>
@@ -21,79 +22,22 @@
         <main class="bg-white pl-4 pr-4 max-w-2xl ml-auto mr-auto pb-10 pt-10">
             <div class="content max-w-md ml-auto mr-auto">
 				<h1>Getting started</h1>
-<p>You just got everything installed. Run this command while developing a theme:</p>
+<p>You just got everything installed. Hopefully!</p>
+<h2>Update BrowserSync proxy URL</h2>
+<p>BrowserSync proxy URL is the dev URL you want to use with <code>npm run watch</code>.</p>
+<ol>
+<li>Open file <code>webpack.settings.js</code>.</li>
+<li>Locate <code>BrowserSyncConfig</code>.</li>
+<li>Update <code>proxy</code> URL. For example <code>mysite.test</code>.</li>
+</ol>
+<h2>Start developing</h2>
+<p>Then run this command while developing a theme:</p>
 <pre><code class="language-bash">npm run watch
 </code></pre>
+<p>It watches for changes to any files by starting <a href="https://www.browsersync.io/">Browsersync</a> and rebuilds for a development environment.</p>
+<p>By default dev URL is <a href="localhost:3000">localhost:3000</a>.</p>
+<p>This can also be changed in <code>BrowserSyncConfig</code> settings.</p>
 <p>After this everyone's going to have different starting points for their theme. Some people are going to want to start adding in some basic CSS. Some will want to start customizing HTML or PHP. There's no right answer.</p>
-<p>This tutorial will walk you through the folder structure. Familiarizing yourself with how things are organized will help you understand a little more about what's going on.</p>
-<h2>The folder structure</h2>
-<p>By default, everything is set up like so:</p>
-<pre><code>/uuups
-	/app
-	/dist
-	/resources
-	...files
-</code></pre>
-<p>99% of the work that you do with your theme will be in either the <code>/app</code> folder or <code>/resources</code> folder.  This is pretty much where all your custom code will go. All the other files outside of that can, of course, be tweaked. But, for getting started, you only need to know about those two folders.</p>
-<h3>root</h3>
-<p>The root theme folder has several files, some of which shouldn't be edited.</p>
-<ul>
-<li><code>.editorconfig</code> - Used for configuring code editors for consistent styles. See: <a href="http://editorconfig.org/">EditorConfig</a>.</li>
-<li><code>.eslintignore</code> - Used for listing files to ignore for JS linting.</li>
-<li><code>.eslintrc</code> - Configuration file for JS linting.</li>
-<li><code>.gitattributes</code> - Attributes for Git.</li>
-<li><code>.gitignore</code> - Files and folders that Git should ignore when committing and pushing to a repo.</li>
-<li><code>phpcs.xml.dist</code> - PHP coding standards configuration file.</li>
-<li><code>.stylelintignore</code> - Used for listing files to ignore for style linting.</li>
-<li><code>.stylelintrc</code> - Configuration file for style linting.</li>
-<li><code>.travis.yml</code> - Configuration file for Travis CI.</li>
-<li><code>changelog.md</code> - Change log of the theme.</li>
-<li><code>composer.json</code> - Used for listing Composer dependencies.</li>
-<li><code>functions.php</code> - Functions file first called by WordPress to bootstrap the theme.</li>
-<li><code>index.php</code> - Unused fallback template that's required in WP's system.</li>
-<li><code>package-lock.json</code> - Used by NPM to lock dependencies (don't edit).</li>
-<li><code>package.json</code> - Setup for node scripts and dependencies (used by NPM and Yarn).</li>
-<li><code>postcss.config.js</code> - Configuration file for <a href="https://postcss.org/">PostCSS</a>.</li>
-<li><code>readme.md</code> - Readme file used by GitHub and other systems to describe the theme.</li>
-<li><code>screenshot.png</code> - A 4:3 screenshot image of the theme.</li>
-<li><code>style.css</code> - Needed by WP to know this is a theme. We use this for configuration, essentially.</li>
-<li><code>themeclaim.json</code> - Configuration file for renaming the theme info.</li>
-<li><code>webpack.common.js</code> - Handles Webpack configuration for dev and prod.</li>
-<li><code>webpack.dev.js</code> - Handles Webpack configuration for dev.</li>
-<li><code>webpack.prod.js</code> - Handles Webpack configuration for prod.</li>
-<li><code>webpack.release.js</code> - Handles configuration for releasing public theme as <code>.zip</code> file.</li>
-<li><code>webpack.settings.js</code> - Handles Webpack settings. Most of the Webpack related changes should happen in this file.</li>
-</ul>
-<h3>/app</h3>
-<p>The <code>/app</code> folder is where your &quot;app&quot; lives. This is the PHP code for your theme. Generally speaking, you'll have 3 types of PHP files that live within this folder or its sub-folders:</p>
-<ul>
-<li><code>bootstrap-{$name}.php</code> - Holds code to bootstrap something in the theme.</li>
-<li><code>class-{$name}.php</code> - Holds a single PHP class.</li>
-<li><code>functions-{$name}.php</code> - Holds a group of related functions.</li>
-</ul>
-<h3>/dist</h3>
-<p>The <code>/dist</code> folder is for holding our compiled assets for distribution. <strong>These files should not be edited directly</strong>. The sub-folders are organized on par with the sub-folders in <code>/resources</code>.</p>
-<ul>
-<li><code>js</code> - Holds the compiled scripts.</li>
-<li><code>css</code> - Holds the compiled stylesheets.</li>
-</ul>
-<p>Note that the <code>/resources/views</code> and <code>/resources/lang</code> folders are not copied over to <code>/dist</code>.</p>
-<h3>/resources</h3>
-<p>The <code>/resources</code> folder is where much of the magic of theme development will happen.  This is essentially the stuff that you will be editing the vast majority of the time when creating a theme.</p>
-<ul>
-<li><code>css</code> - SCSS/CSS files.</li>
-<li><code>fonts</code> - Font files.</li>
-<li><code>img</code> - PNG, JPG, and most other image files.</li>
-<li><code>js</code> - JavaScript files.</li>
-<li><code>lang</code> - POT and any other MO or PO language files.</li>
-<li><code>svg</code> - SVG icons.</li>
-<li><code>svg</code> - SVG files.</li>
-<li><code>views</code> - The template files for the theme.</li>
-</ul>
-<h3>/node_modules</h3>
-<p>NPM packages folder. Do not edit files inside this folder.</p>
-<h3>/vendor</h3>
-<p>Composer packages folder. Do not edit files inside this folder.</p>
 
 			</div>
         </main>
