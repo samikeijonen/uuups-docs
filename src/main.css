@@ -8,7 +8,7 @@ h5,
 h6 {
 	color: config('colors.black');
 	line-height: 1.25;
-	margin: 0 0 1rem;
+	margin: 0;
 }
 
 h1 {
@@ -23,20 +23,31 @@ h3 {
 	font-size: 1.5rem;
 }
 
-p,
-ul,
-ol,
-pre {
-	margin: 0 0 2rem;
-}
-
 pre {
 	background-color: config('colors.grey-lightest');
+	overflow: auto;
 	padding: 2rem;
 }
 
-a,
-a:visited {
+.content {
+	--flow-space: 2rem;
+}
+
+h2,
+h3 {
+    --flow-space: 3rem;
+}
+
+h2 + p,
+h3 + p {
+    --flow-space: 1.5rem;
+}
+
+.content > * + * {
+	margin-top: var(--flow-space);
+}
+
+a {
 	color: config('colors.purple');
 }
 
@@ -44,6 +55,10 @@ a:hover,
 a:active,
 a:focus {
 	color: config('colors.dark');
+}
+
+:focus {
+	outline: 1px dotted;
 }
 
 @tailwind utilities;

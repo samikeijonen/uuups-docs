@@ -4,9 +4,13 @@ title: Getting started
 ---
 # Getting started 
 
-You just got everything installed. Congratulations. You're now well on your way to building your first theme.
+You just got everything installed. Run this command while developing a theme:
 
-Everyone's going to have different starting points for their theme. Some people are going to want to start adding in some basic CSS. Some will want to start customizing HTML or PHP. There's no right answer.
+```bash
+npm run watch
+```
+
+After this everyone's going to have different starting points for their theme. Some people are going to want to start adding in some basic CSS. Some will want to start customizing HTML or PHP. There's no right answer.
 
 This tutorial will walk you through the folder structure. Familiarizing yourself with how things are organized will help you understand a little more about what's going on.
 
@@ -64,7 +68,7 @@ The `/app` folder is where your "app" lives. This is the PHP code for your theme
 
 ### /dist
 
-The `/dist` folder is for holding our compiled assets for distribution. These files should not be edited directly. The sub-folders are organized on par with the sub-folders in `/resources`.
+The `/dist` folder is for holding our compiled assets for distribution. **These files should not be edited directly**. The sub-folders are organized on par with the sub-folders in `/resources`.
 
 * `js` - Holds the compiled scripts.
 * `css` - Holds the compiled stylesheets.

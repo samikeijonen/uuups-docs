@@ -11,18 +11,20 @@
         <header class="pl-4 pr-4 max-w-2xl ml-auto mr-auto">
             <nav class="pb-10 pt-10">
                 <ul class="flex flex-wrap list-reset mb-0">
-                    <li class="mr-4"><a class="no-underline text-grey" href="/">Home</a></li>
-                    <li class="mr-4"><a class="no-underline text-grey" href="/installation">Installation</a></li>
-                    <li class="mr-4"><a class="no-underline text-grey" href="/getting-started">Getting started</a></li>
-                    <li class="mr-4"><a class="no-underline text-grey" href="/build-process">Build process</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/">Home</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/installation">Installation</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/getting-started">Getting started</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/build-process">Build process</a></li>
                 </ul>
             </nav>
         </header>
         <main class="bg-white pl-4 pr-4 max-w-2xl ml-auto mr-auto pb-10 pt-10">
-            <div class="max-w-md ml-auto mr-auto">
+            <div class="content max-w-md ml-auto mr-auto">
 				<h1>Getting started</h1>
-<p>You just got everything installed. Congratulations. You're now well on your way to building your first theme.</p>
-<p>Everyone's going to have different starting points for their theme. Some people are going to want to start adding in some basic CSS. Some will want to start customizing HTML or PHP. There's no right answer.</p>
+<p>You just got everything installed. Run this command while developing a theme:</p>
+<pre><code class="language-bash">npm run watch
+</code></pre>
+<p>After this everyone's going to have different starting points for their theme. Some people are going to want to start adding in some basic CSS. Some will want to start customizing HTML or PHP. There's no right answer.</p>
 <p>This tutorial will walk you through the folder structure. Familiarizing yourself with how things are organized will help you understand a little more about what's going on.</p>
 <h2>The folder structure</h2>
 <p>By default, everything is set up like so:</p>
@@ -70,7 +72,7 @@
 <li><code>functions-{$name}.php</code> - Holds a group of related functions.</li>
 </ul>
 <h3>/dist</h3>
-<p>The <code>/dist</code> folder is for holding our compiled assets for distribution. These files should not be edited directly. The sub-folders are organized on par with the sub-folders in <code>/resources</code>.</p>
+<p>The <code>/dist</code> folder is for holding our compiled assets for distribution. <strong>These files should not be edited directly</strong>. The sub-folders are organized on par with the sub-folders in <code>/resources</code>.</p>
 <ul>
 <li><code>js</code> - Holds the compiled scripts.</li>
 <li><code>css</code> - Holds the compiled stylesheets.</li>
