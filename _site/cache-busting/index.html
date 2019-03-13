@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cache busting &ndash; Uuups documentation</title>
+
+        <link rel="stylesheet" href="/dist/main.css">
+    </head>
+    <body class="text-grey-darker bg-grey-lightest font-sans text-lg leading-normal">
+        <header class="pl-4 pr-4 max-w-2xl ml-auto mr-auto">
+            <nav class="pb-10 pt-10">
+                <ul class="flex flex-wrap list-reset mb-0">
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/">Home</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/installation">Installation</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/getting-started">Getting started</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/folder-structure">Folder structure</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/build-process">Build process</a></li>
+                    <li class="mr-4"><a class="no-underline text-grey hover:text-purple focus:text-purple" href="/cache-busting">Cache busting</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="bg-white pl-4 pr-4 max-w-2xl ml-auto mr-auto pb-10 pt-10">
+            <div class="content max-w-md ml-auto mr-auto">
+				<h1>Cache busting</h1>
+<p>There are many ways to <a href="https://www.alainschlesser.com/bust-cache-content-hash/">bust the cache</a>. In this theme we use <a href="https://github.com/danethurber/webpack-manifest-plugin">Webpack Manifest Plugin</a> via NPM.</p>
+<p>This will generate a <code>dist/manifest.json</code> file with a mapping of all source file names to their corresponding output file. In dev mode it looks like this:</p>
+<pre><code class="language-json">{
+  &quot;js/app.js&quot;: &quot;js/app.js&quot;,
+  &quot;js/customizeControls.js&quot;: &quot;js/customizeControls.js&quot;,
+  &quot;js/customizePreview.js&quot;: &quot;js/customizePreview.js&quot;,
+  &quot;css/editor.css&quot;: &quot;css/editor.css&quot;,
+  &quot;js/editorScripts.js&quot;: &quot;js/editorScripts.js&quot;,
+  &quot;css/style.css&quot;: &quot;css/style.css&quot;
+}
+</code></pre>
+<p>In production mode it looks like this:</p>
+<pre><code class="language-json">{
+  &quot;js/app.js&quot;: &quot;js/app.js?id=5b7625bed5a248539e50dfb6e774f6af&quot;,
+  &quot;js/customizeControls.js&quot;: &quot;js/customizeControls.js?id=010ee485b42018fe89ba4e94cc5e7d91&quot;,
+  &quot;js/customizePreview.js&quot;: &quot;js/customizePreview.js?id=74d1380d3f18a3f3466f29b482dd3f3f&quot;,
+  &quot;css/editor.css&quot;: &quot;css/editor.css?id=a25ccc94164cc8e37dc36b85a60004cb&quot;,
+  &quot;js/editorScripts.js&quot;: &quot;js/editorScripts.js?id=073d4045b18fdb9e7205edfde21a8b1b&quot;,
+  &quot;css/style.css&quot;: &quot;css/style.css?id=4e9c97436c5f8ea206212ced7c216115&quot;
+}
+</code></pre>
+<p>In the production version we have file chunk hash as query strings. This will only be updated if the file content have changed.</p>
+<p>This is nice since we don't bust the cache for assets that haven't changed.</p>
+<h2>Reading the manifest.json</h2>
+<p>In <code>app/Providers/AppServiceProvider.php</code> we read the content of the <code>manifest.json</code> using <code>file_get_contents</code> PHP function.</p>
+<p>Some says that <code>file_get_contents</code> is slow but I'm not sure if there is big performance hit in this case. I <em>think</em> performance hit is really low.</p>
+<h2>Enqueue using <code>asset</code> function</h2>
+<p>In <code>app/functions-assets.php</code> there is <code>asset</code> function. We use this to map our <code>manifest.json</code> content in correct assets.</p>
+<p>Example for main styles:</p>
+<pre><code class="language-php">// Main styles.
+wp_enqueue_style( 'uuups-style', asset( 'css/style.css' ), null, null );
+</code></pre>
+<ul>
+<li><code>uuups-style</code> is stylesheet handle.</li>
+<li><code>asset( 'css/style.css' )</code> checks if we have <code>css/style.css</code> key in <code>manifest.json</code>. If we do, enqueue it from <code>dist</code> folder using the hash as query string.</li>
+<li>Note that we set version to <code>null</code> since we don't want WP to add it's default version number.</li>
+</ul>
+
+			</div>
+        </main>
+
+		<script src="/dist/index.js"></script>
+    </body>
+</html>

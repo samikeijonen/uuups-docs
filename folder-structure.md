@@ -127,6 +127,8 @@ The `/dist` folder is for holding our compiled assets for distribution. **These 
 
 Note that the `/resources/views` and `/resources/lang` folders are not copied over to `/dist`.
 
+There is also `manifest.json` file which is used for automatic [cache busting](/cache-busting).
+
 ## /resources
 
 The `/resources` folder is where much of the magic of theme development will happen.  This is essentially the stuff that you will be editing the vast majority of the time when creating a theme.
