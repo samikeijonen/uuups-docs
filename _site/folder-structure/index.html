@@ -115,12 +115,21 @@
 </ul>
 </li>
 </ul>
+<p>The magic happens in <code>composer.json</code> file:</p>
+<pre><code class="language-json">&quot;autoload&quot;    : {
+	&quot;psr-4&quot; : {
+		&quot;Uuups\\&quot; : &quot;app/&quot;
+	}
+},
+</code></pre>
 <p>Read Justin's tutorial about <a href="http://justintadlock.com/archives/2018/12/14/php-namespaces-for-wordpress-developers">PHP namespaces and autoloading</a>.</p>
 <h2>/dist</h2>
 <p>The <code>/dist</code> folder is for holding our compiled assets for distribution. <strong>These files should not be edited directly</strong>. The sub-folders are organized on par with the sub-folders in <code>/resources</code>.</p>
 <ul>
-<li><code>js</code> - Holds the compiled scripts.</li>
 <li><code>css</code> - Holds the compiled stylesheets.</li>
+<li><code>fonts</code> - Holds the fonts.</li>
+<li><code>js</code> - Holds the compiled scripts.</li>
+<li><code>svg</code> - Holds the compiled SVG icons.</li>
 </ul>
 <p>Note that the <code>/resources/views</code> and <code>/resources/lang</code> folders are not copied over to <code>/dist</code>.</p>
 <h2>/resources</h2>

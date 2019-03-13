@@ -104,14 +104,26 @@ The sub-folders follow namespacing and class-naming rules.
 	* For example `Providers/AppServiceProvider.php`.
 	* In there class name is `AppServiceProvider`.
 
+The magic happens in `composer.json` file:
+
+```json
+"autoload"    : {
+	"psr-4" : {
+		"Uuups\\" : "app/"
+	}
+},
+```
+
 Read Justin's tutorial about [PHP namespaces and autoloading](http://justintadlock.com/archives/2018/12/14/php-namespaces-for-wordpress-developers).
 
 ## /dist
 
 The `/dist` folder is for holding our compiled assets for distribution. **These files should not be edited directly**. The sub-folders are organized on par with the sub-folders in `/resources`.
 
-* `js` - Holds the compiled scripts.
 * `css` - Holds the compiled stylesheets.
+* `fonts` - Holds the fonts.
+* `js` - Holds the compiled scripts.
+* `svg` - Holds the compiled SVG icons.
 
 Note that the `/resources/views` and `/resources/lang` folders are not copied over to `/dist`.
 
