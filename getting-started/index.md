@@ -29,3 +29,9 @@ By default dev URL is [localhost:3000](localhost:3000).
 This can also be changed in `BrowserSyncConfig` settings.
 
 After this everyone's going to have different starting points for their theme. Some people are going to want to start adding in some basic CSS. Some will want to start customizing HTML or PHP. There's no right answer.
+
+Tip: stop watching files using command `ctrl + c`.
+
+## Editorconfig
+
+Theme has an `.editorconfig` file that sets your code editor settings accordingly. [Download the extension](http://editorconfig.org/#download) for your editor. The settings will automatically be applied when you edit code when you have the extension.
