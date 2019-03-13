@@ -23,6 +23,68 @@
         <main class="bg-white pl-4 pr-4 max-w-2xl ml-auto mr-auto pb-10 pt-10">
             <div class="content max-w-md ml-auto mr-auto">
 				<h1>Linting</h1>
+<p>We lint PHP, CSS, and JS to analyze source code for errors, bugs, stylistic details, and keeping track of best practises.</p>
+<ul>
+<li><strong>PHP</strong>: Custom <a href="https://github.com/samikeijonen/phpcs-composer">PHPCS ruleset</a> as a composer package.</li>
+<li><strong>CSS</strong>: Custom <a href="https://github.com/samikeijonen/stylelint-config">Styleling config</a> as a NPM package.</li>
+<li><strong>JS</strong>: <a href="https://www.npmjs.com/package/@wordpress/eslint-plugin">WordPress ESLing plugin</a> as a NPM package.</li>
+</ul>
+<h2>Linting before committing using <code>lint-staged</code></h2>
+<p>We run linting before committing using <a href="https://github.com/okonet/lint-staged">lint-staged</a> and <a href="https://github.com/typicode/husky">husky</a> NPM packages.</p>
+<p>Husky gives us posibility to lint using <code>pre-commit</code> Git hook. Here is example of config in <code>package.json</code> file:</p>
+<pre><code class="language-json">&quot;husky&quot;: {
+	&quot;hooks&quot;: {
+		&quot;pre-commit&quot;: &quot;lint-staged&quot;
+	}
+},
+&quot;lint-staged&quot;: {
+	&quot;*.js&quot;: [
+		&quot;eslint&quot;
+	],
+	&quot;*.css&quot;: [
+		&quot;stylelint&quot;
+	],
+	&quot;*.php&quot;: [
+		&quot;./vendor/bin/phpcs --warning-severity=8&quot;
+	]
+},
+</code></pre>
+<ul>
+<li>If commit files includes JS files, we run <code>eslint</code> on those files.</li>
+<li>If commit files includes CSS files, we run <code>stylelint</code> on those files.</li>
+<li>If commit files includes PHP files, we run <code>PHPCS</code> on those files.</li>
+</ul>
+<p>In other words we only lint files that have changed using correct lint tool.</p>
+<h2>Linting PHP</h2>
+<p>We set the custom ruleset in <code>composer.json</code> file under <code>require-dev</code>.</p>
+<pre><code class="language-json">&quot;require-dev&quot;: {
+	&quot;samikeijonen/phpcs-composer&quot;: &quot;dev-master&quot;
+}
+</code></pre>
+<p>Update PHPCS ruleset or any other composer package by running:</p>
+<pre><code class="language-bash">composer up
+</code></pre>
+<p>Our ruleset is called <code>Foxland-Default</code> and we set it in <code>.phpcs.xml.dist</code> file. There are also couple of other theme related configs like checking theme text-domain.</p>
+<p>You can switch to any other PHPCS ruleset, for example to <a href="https://github.com/WPTRT/WPThemeReview">WPThemeReview</a>.</p>
+<p>Lint PHP by running:</p>
+<pre><code class="language-bash">npm run lint:php
+</code></pre>
+<h2>Linting CSS</h2>
+<p>We set custom stylelint config in <code>package.json</code> file called <code>@foxland/stylelint-config</code>.</p>
+<p>We set this in <code>.stylelintrc</code> file.</p>
+<p>Lint CSS by running:</p>
+<pre><code class="language-bash">npm run lint:css
+</code></pre>
+<h2>Linting JS</h2>
+<p>We set custom ESLint config in <code>package.json</code> file called <code>@wordpress/eslint-plugin</code>.</p>
+<p>We set this in <code>.eslintrc</code> file.</p>
+<p>Lint JS by running:</p>
+<pre><code class="language-bash">npm run lint:js
+</code></pre>
+<h2>Lint all</h2>
+<p>You can also lint PHP, CSS, and JS using command:</p>
+<pre><code class="language-bash">npm run lint
+</code></pre>
 
 			</div>
         </main>
